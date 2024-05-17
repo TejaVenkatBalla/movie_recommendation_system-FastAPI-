@@ -181,7 +181,7 @@ def calculate_similarity(user_ratings_1, user_ratings_2):
     return similarity
 
 
-@app.post("/movies/{user_id}/rec")
+@app.get("/movies/{user_id}/rec")
 def generate_recommendations(user_id: int, db: Session = Depends(get_db)):
     # Get user's ratings
     user_ratings = db.query(models.MovieRating).filter(
