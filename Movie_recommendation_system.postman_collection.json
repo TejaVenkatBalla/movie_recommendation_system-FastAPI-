@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "8fe9d031-485a-4b87-a208-d6e264e9b4a0",
+		"name": "Movie_recommendation_system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26355580",
+		"_collection_link": "https://lunar-meadow-194442.postman.co/workspace/My-Workspace~bd93a4f1-1ab7-4bb9-85fc-cb5c73c64225/collection/26355580-8fe9d031-485a-4b87-a208-d6e264e9b4a0?action=share&source=collection_link&creator=26355580"
+	},
+	"item": [
+		{
+			"name": "User_management",
+			"item": [
+				{
+					"name": "create_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/register?username=user2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"register"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "user2"
+								}
+							]
+						}
+					},
+					"response": [{
+						"username": "user2"
+					}]
+				},
+				{
+					"name": "get_users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [{
+						"users": [
+							{
+								"id": 1,
+								"username": "Teja"
+							},
+							{
+								"id": 2,
+								"username": "Raj"
+							},
+							{
+								"id": 3,
+								"username": "sus"
+							},
+							{
+								"id": 4,
+								"username": "user1"
+							},
+							{
+								"id": 5,
+								"username": "user2"
+							}
+						]
+					}]
+				},
+				{
+					"name": "get_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [{
+						"id": 1,
+						"username": "Teja"
+					}]
+				},
+				{
+					"name": "update_user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/3?username=sam",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"3"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "sam"
+								}
+							]
+						}
+					},
+					"response": [{
+						"message": "User updated successfully"
+					}]
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": [{
+						"message": "User deleted successfully"
+					}]
+				}
+			]
+		},
+		{
+			"name": "Movies_management",
+			"item": [
+				{
+					"name": "get_movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/movies/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"response": [[
+						{
+							"id": 1,
+							"genre": "Action",
+							"title": "Batman"
+						},
+						{
+							"id": 2,
+							"genre": "Action",
+							"title": "Spiderman"
+						},
+						{
+							"id": 3,
+							"genre": "suspence",
+							"title": "Conjuring"
+						}
+					]]
+				},
+				{
+					"name": "create_movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/movies/?title=star wars&genre=Action",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "star wars"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								}
+							]
+						}
+					},
+					"response": [{
+						"id": 4,
+						"genre": "Action",
+						"title": "star wars"
+					}]
+				},
+				{
+					"name": "get_movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/movies/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": [{
+						"id": 1,
+						"genre": "Action",
+						"title": "Batman"
+					}]
+				},
+				{
+					"name": "update_movie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/movies/3?title=Conjuring&genre=Horror",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"3"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Conjuring"
+								},
+								{
+									"key": "genre",
+									"value": "Horror"
+								}
+							]
+						}
+					},
+					"response": [{
+						"message": "Movie updated successfully"
+					}]
+				},
+				{
+					"name": "delete_movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/movies/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"4"
+							]
+						}
+					},
+					"response": [{
+						"message": "Movie deleted successfully"
+					}]
+				}
+			]
+		},
+		{
+			"name": "recommendation_sys",
+			"item": [
+				{
+					"name": "rate_movies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/movies/3/rate?user_id=1&rating=5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"3",
+								"rate"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "rating",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [{
+						"user_id": 1,
+						"rating": 5.0,
+						"movie_id": 3,
+						"id": 6
+					}]
+				},
+				{
+					"name": "get_recommendations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/movies/2/rec",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"2",
+								"rec"
+							]
+						}
+					},
+					"response": [[
+						"Conjuring",
+						"Batman",
+						"Spiderman"
+					]]
+				}
+			]
+		}
+	]
+}
